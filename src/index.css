@@ -1,68 +1,97 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.user-card {
+  width: 320px;
+  background: linear-gradient(135deg, #ff99cc, #ff3366);
+  color: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(255, 51, 102, 0.4);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+/* Floating Glow Effect */
+.user-card::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 70%);
+  top: -50%;
+  left: -50%;
+  animation: floatingGlow 5s infinite linear;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@keyframes floatingGlow {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, 10px); }
+  100% { transform: translate(0, 0); }
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Hover Effect */
+.user-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 51, 102, 0.5);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Profile Photo */
+.photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* Title */
+.details h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 3px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Name */
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffebf0;
+  text-transform: capitalize;
+  margin-top: 5px;
+}
+
+/* Contact & Address */
+.email, .phone, .address {
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px;
+  border-radius: 10px;
+  margin: 6px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.email:hover, .phone:hover, .address:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Address Special Glow */
+.address {
+  font-style: italic;
+  font-size: 13px;
 }
